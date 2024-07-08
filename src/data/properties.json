@@ -1,44 +1,56 @@
 [
     {
     "Id":1,
+    "SellRent":1,
     "Type":"House",
     "Price":1200,
-    "Name":"Birla House"
+    "Name":"Birla House",
+    "Image": "House6"
     
     },
     {
         "Id":2,
+        "SellRent":2,
         "Type":"House",
         "Price":1900,
-        "Name":"Nanda House"
+        "Name":"Nanda House",
+        "Image": "House2"
         
     },
     {
             "Id":3,
+            "SellRent":1,
             "Type":"House",
             "Price":1400,
-            "Name":"Tata House"
+            "Name":"Tata House",
+            "Image": "House3"
             
     },
     {
       "Id":4,
+      "SellRent":2,
       "Type":"House",
       "Price":1100,
-      "Name":"Jagan House"
+      "Name":"Jagan House",
+      "Image": "House4"
       
     },
    {
           "Id":5,
+          "SellRent":1,
           "Type":"House",
           "Price":1500,
-          "Name":"Kusmanch House"
+          "Name":"Kusmanch House",
+          "Image": "House5"
           
     },
     {
       "Id":6,
+      "SellRent":1,
       "Type":"House",
       "Price":1900,
       "Name":"Tmp House"
+     
       
     }
     ]
