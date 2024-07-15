@@ -9,13 +9,25 @@ import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import{Routes, RouterModule} from '@angular/router';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component'
-import{FormsModule} from '@angular/forms'
+import{FormsModule} from '@angular/forms';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component'
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { UserServiceService } from './services/user-service.service';
+import { SampleFormComponent } from './sample-form/sample-form/sample-form.component';
+import { AlertifyService } from './services/alertify.service';
+import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 const appRoutes:Routes=[
   {path: '', component: PropertyListComponent},
   {path: 'rent-property', component: PropertyListComponent},
   {path: 'add-property', component: AddPropertyComponent},
   {path: 'property-detail/:id', component: PropertyDetailComponent},
-  {path: '**', component: PropertyListComponent},
+  {path:'user/Login', component:UserLoginComponent},
+  {path:'user/Register', component:UserRegisterComponent},
+  {path:'sample-form', component:SampleFormComponent},
+  {path: '**', component: PropertyListComponent}
 
 ]
 @NgModule({
@@ -25,15 +37,21 @@ const appRoutes:Routes=[
     PropertyListComponent,
     NavBarComponent,
     AddPropertyComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
+    SampleFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
   ],
-  providers: [HousingService],
+  providers: [HousingService, UserServiceService, AlertifyService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
