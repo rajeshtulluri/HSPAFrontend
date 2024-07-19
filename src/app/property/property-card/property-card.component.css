@@ -1,7 +1,16 @@
 
+.card{
+    min-height: 400px;
+}
+
+
 .card-img-wrapper{
     overflow: hidden;
     position: relative;
+}
+.font-highlight{
+    font-style: italic;
+    color:red;
 }
 
 .card:hover img{

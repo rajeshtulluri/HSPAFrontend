@@ -1,0 +1,16 @@
+.btn-block{
+    width:100%;
+}
+.photo-control{
+    min-height:300px;
+    vertical-align: middle;
+    text-align: center;
+    border:1px dashed blue;
+    margin: 5px;
+}
+.res{
+    color: red;
+}
+.sub{
+    color:green
+}

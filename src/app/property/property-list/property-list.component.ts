@@ -2,7 +2,7 @@
 
 import { Component,OnInit } from '@angular/core';
 import { HousingService } from 'src/app/services/housing.service';
-import { IProperty } from '../iProperty.interface';
+import { IPropertyBase } from 'src/app/model/iproperty-base';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit{
-  properties: Array<IProperty>=[];
+  properties: Array<IPropertyBase>=[];
   SellRent=1;
   constructor(private housingService: HousingService, private route:ActivatedRoute){
     
@@ -24,7 +24,17 @@ export class PropertyListComponent implements OnInit{
       }
       this.housingService.getAllProperties(this.SellRent).subscribe(data=>{
        this.properties=data;
-       console.log(data);
+      //  const newProperty = localStorage.getItem('newProp');
+      console.log("Data from Property List ");
+      // console.log(newProperty);
+      // if(newProperty)
+      // {
+      //   if(JSON.parse(newProperty).SellRent===this.SellRent)
+      //     {
+      //       this.properties=[ ...this.properties, JSON.parse(newProperty)];
+      //     }
+      // }
+       console.log(this.properties);
        console.log(this.route.snapshot.url.toString());
        console.log(data)}, error=>{
         console.log(error);
