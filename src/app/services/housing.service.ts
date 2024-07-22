@@ -23,7 +23,7 @@ export class HousingService {
 
   getAllProperties(SellRent?:Number): Observable<Property[]>{
     return this.http.get<{[key:string]:any}>('data/properties.json').pipe(
-      map((data)=> { 
+      map((data)=> { console.log("dataaa from Json file", data);
         const propertiesArray: Array<Property>=[];
         let prop=localStorage.getItem('newProp');
         if(prop)
@@ -54,7 +54,7 @@ export class HousingService {
           propertiesArray.push(data[id]);
         }
       }
-      
+        console.log("Data from PropertiesAtrray", propertiesArray);
         return propertiesArray;
       })
     );

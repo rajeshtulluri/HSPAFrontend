@@ -2,8 +2,9 @@
 
 import { Component,OnInit } from '@angular/core';
 import { HousingService } from 'src/app/services/housing.service';
-import { IPropertyBase } from 'src/app/model/iproperty-base';
+
 import { ActivatedRoute } from '@angular/router';
+import { Property } from 'src/app/model/property';
 
 
 @Component({
@@ -12,9 +13,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit{
+onSortDirection() {
+if(this.sortDirection==='asc')
+{
+  this.sortDirection='desc';
+}else{
+  this.sortDirection='asc';
+}
+}
+SortByParam='';
+onCityClear() {
+this.SearchCity='';
+this.City='';
+}
+
+onCityFilteer() {
+this.SearchCity=this.City;
+}
   today=new Date();
-  properties: Array<IPropertyBase>=[];
+  properties: Array<Property>=[];
   SellRent=1;
+  City='';
+  SearchCity='';
+  sortDirection='asc';
   constructor(private housingService: HousingService, private route:ActivatedRoute){
     
   }
@@ -26,7 +47,7 @@ export class PropertyListComponent implements OnInit{
       this.housingService.getAllProperties(this.SellRent).subscribe(data=>{
        this.properties=data;
       //  const newProperty = localStorage.getItem('newProp');
-      console.log("Data from Property List ");
+      console.log("Data from Property List ",this.properties);
       // console.log(newProperty);
       // if(newProperty)
       // {
