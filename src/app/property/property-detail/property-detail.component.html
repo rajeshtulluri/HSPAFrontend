@@ -2,7 +2,8 @@
     <div class="col-sm-4 p-0 ">
         <div class="card">
             <div class="card-img-wrapper">
-                <img src="assets/image/House2.jpg" alt="House-Image" class="card-img-top">
+                <img *ngIf="property.Image " class="card-img-top" src="assets/image/{{property.Image}}.jpg" alt="House-Image" class="card-img-top">
+                <img  *ngIf="!property.Image"   class="card-img-top" src="assets/image/HouseDefault.jpg" alt="House-Image" class="card-img-top">
             </div>
             <div class="card-body">
                 <h1 class="card-title">{{property.Name}}</h1>
@@ -22,7 +23,7 @@
                 </div>
                 <div>
                     <strong>Carpet Area:</strong>
-                    1100Sqft
+                    {{property.carpetArea}}
                 </div>
                 <div>
                     <strong>Furnishing Type:</strong>  
@@ -40,21 +41,86 @@
         </div>
     </div>
     <div class="col-sm-8 p-0">
+        <div class="tab-panel p-3">
         <tabset>
             <tab heading="Overview">
-
-            </tab>
-            <tab heading="Address">
-                
-            </tab>
+                <h1>Overview</h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="heading">
+                            <strong>Project Name</strong>
+                            <p>{{property.Name}}</p>
+                        </div>
+      
+                        <div class="heading">
+                            <strong>Floor Number</strong>
+                            <p>{{property.floorNo}} of {{property.totalFloors}}</p>
+                        </div>
+      
+                        <div class="heading">
+                            <strong>Age of Property</strong>
+                            <p>{{property.age}}</p>
+                        </div>
+      
+                        <div class="heading">
+                            <strong>Posession</strong>
+                            <p>{{property.estpossession| date}}</p>
+                        </div>
+                    </div>
+      
+                    <div class="col-sm-6">
+                        <div class="heading">
+                            <strong>Main Entrance</strong>
+                            <p>{{property.mainEntrance}}</p>
+                        </div>
+      
+                        <div class="heading">
+                            <strong>Gated Community</strong>
+                            <p *ngIf="property.gated">Yes</p>
+                            <p *ngIf="!property.gated">No</p>
+                        </div>
+      
+                        <div class="heading">
+                            <strong>Security Deposit</strong>
+                            <p>{{property.security}}</p>
+                        </div>
+                        <div class="heading">
+                            <strong>Maintenance</strong>
+                            <p>{{property.maintenance}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="heading">
+                            <strong>About Property</strong>
+                            <p>{{property.description}}</p>
+                        </div>
+                    </div>
+                  </div>
+              </tab>
+              <tab heading="Address">
+                    <div class="col-sm-12">
+                        <h1>
+                            Address
+                        </h1>
+                            <div class="heading">
+                                <strong>{{property.address}}</strong><br/>
+                                <strong>{{property.address2}}</strong><br/>
+                                <strong>{{property.city}}</strong>
+                            </div>
+                    </div>
+      
+              </tab>
              <tab heading="Photo">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
                 
             </tab>
             <tab heading="Contact">
+                This will be Restricted area and only loggedIn users able to see this Data Here 
                 
             </tab>
 
         </tabset>
 
     </div>
+</div>
 </div>

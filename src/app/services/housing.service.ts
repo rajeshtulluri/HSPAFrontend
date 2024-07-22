@@ -21,16 +21,16 @@ export class HousingService {
           );
   }
 
-  getAllProperties(SellRent?:Number): Observable<IPropertyBase[]>{
+  getAllProperties(SellRent?:Number): Observable<Property[]>{
     return this.http.get<{[key:string]:any}>('data/properties.json').pipe(
-      map((data)=> {
-        const propertiesArray: Array<IPropertyBase>=[];
+      map((data)=> { 
+        const propertiesArray: Array<Property>=[];
         let prop=localStorage.getItem('newProp');
         if(prop)
         {
           const localProperties= JSON.parse(prop);
           if(localProperties)
-          { 
+          {  
             for(const id in localProperties)
               { if(SellRent)
                 {
@@ -54,6 +54,7 @@ export class HousingService {
           propertiesArray.push(data[id]);
         }
       }
+      
         return propertiesArray;
       })
     );

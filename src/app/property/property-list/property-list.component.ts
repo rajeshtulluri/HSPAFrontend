@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit{
+  today=new Date();
   properties: Array<IPropertyBase>=[];
   SellRent=1;
   constructor(private housingService: HousingService, private route:ActivatedRoute){

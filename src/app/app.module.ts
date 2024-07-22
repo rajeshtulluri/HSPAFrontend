@@ -22,6 +22,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import{NgxGalleryModule} from '@kolkov/ngx-gallery';
+
 const appRoutes:Routes=[
   {path: '', component: PropertyListComponent},
   {path: 'rent-property', component: PropertyListComponent},
@@ -56,7 +58,8 @@ const appRoutes:Routes=[
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    NgxGalleryModule
   ],
   providers: [HousingService, UserServiceService, AlertifyService, AuthService],
   bootstrap: [AppComponent]
